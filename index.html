@@ -116,7 +116,61 @@
 </head>
 <body>
     <div class="container">
-        
+    <div id="youtube-audio-player">
+        <button id="playButton">Play/Pause Audio</button>
+        <p id="status">Attempting to autoplay...</p>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        var playButton = document.getElementById('playButton');
+        var statusText = document.getElementById('status');
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-audio-player', {
+                height: '0',
+                width: '0',
+                videoId: 'HHgVlMrkloQ', // Replace with your video ID
+                playerVars: {
+                    'autoplay': 1,
+                    'start': 30,  // Start time in seconds
+                    'end': 60     // End time in seconds
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Attempt to autoplay
+            
+            playButton.addEventListener('click', function() {
+                if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                statusText.textContent = 'Audio is playing';
+                playButton.textContent = 'Pause Audio';
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                statusText.textContent = 'Audio is paused';
+                playButton.textContent = 'Play Audio';
+            } else if (event.data == YT.PlayerState.ENDED) {
+                statusText.textContent = 'Audio playback ended';
+                playButton.textContent = 'Play Audio';
+            } else if (event.data == YT.PlayerState.UNSTARTED) {
+                statusText.textContent = 'Autoplay was prevented. Please click Play to start audio.';
+            }
+        }
+    </script>
         <div id="q1" class="question">
             <img id="proposalImage" src="couple-image.jpg" alt="Happy Couple">
             <p>Are you Gurpreet Kaur? <span class="emoji">🤔</span></p>
