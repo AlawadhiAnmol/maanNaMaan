@@ -228,9 +228,15 @@
             button.style.top = Math.random() * maxY + 'px';
         }
 
-        function endSession() {
+        function endSession() {            
             document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
-            document.getElementById('result').innerHTML = "Session ended. Refresh to start over. 😢";
+            document.getElementById('result').innerHTML = "Ohho! Bad choice 😢";
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute("href", "./index.html");
+            linkElement.innerHTML = "Try again 🥰";
+            const breakELement = document.createElement('br');
+            document.getElementById('result').append(breakELement);
+            document.getElementById('result').append(linkElement);
         }
 
         function showCongratsScreen() {
