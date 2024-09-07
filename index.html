@@ -172,21 +172,23 @@
         }
     </script>
         <div id="q1" class="question">
-            <img id="proposalImage" src="couple-image.jpg" alt="Happy Couple">
+            <img id="proposalImage" src="couple-image.png" alt="Happy Couple">
             <p>Are you Gurpreet Kaur? <span class="emoji">🤔</span></p>
             <button onclick="answer(1, true)">Yes</button>
             <button onclick="endSession()">No</button>
         </div>
         
         <div id="q2" class="question">
-            <img id="proposalImage" src="couple-image2.jpg" alt="Happy Couple">
+            <img id="proposalImage" src="couple-image2.png" alt="Happy Couple">
             <p>Do you love Anmol Alawadhi? <span class="emoji">❤️</span></p>
             <button onclick="answer(2, true)">Yes</button>
             <button onclick="tryAgain()">No</button>
         </div>
         
         <div id="q3" class="question">
-            <img id="proposalImage" src="couple-image3.jpg" alt="Happy Couple">
+            <video id="proposalImage" autoplay loop muted playsinline>
+                <source src="couple-video3.mp4" type="video/mp4">
+            </video>
             <p>How much do you love him? <span class="emoji">🥰</span></p>
             <input type="range" id="loveBar" min="0" max="10" value="0">
             <p id="loveValue">0</p>
@@ -194,14 +196,14 @@
         </div>
         
         <div id="q4" class="question">
-            <img id="proposalImage" src="couple-image4.jpg" alt="Happy Couple">
+            <img id="proposalImage" src="hotpic.jpeg" alt="Happy Couple">
             <p>Do you promise to not turn him fat? <span class="emoji">🍔</span><span class="emoji">🏋️‍♂️</span></p>
             <button onclick="answer(4, true)">Yes</button>
             <button onclick="endSession()">No</button>
         </div>
         
         <div id="q5" class="question">
-            <img id="proposalImage" src="couple-image5.jpg" alt="Happy Couple">
+            <img id="proposalImage" src="couple-image5.jpeg" alt="Happy Couple">
             <p>Will you marry him? <span class="emoji">💍</span></p>
             <button id="yesButton" onclick="finalAnswer(true)">Yes</button>
             <button id="noButton" onclick="finalAnswer(false)">No</button>
